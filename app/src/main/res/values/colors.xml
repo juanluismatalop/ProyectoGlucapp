@@ -2,4 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="cian">#03A9F4</color>
+    <color name="cian_dark">#016290</color>
 </resources>
