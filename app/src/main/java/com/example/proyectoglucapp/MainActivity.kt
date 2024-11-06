@@ -1,7 +1,9 @@
 package com.example.proyectoglucapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +18,16 @@ class MainActivity : AppCompatActivity() {
 
         val tvWelcomeMessage = findViewById<TextView>(R.id.Bienvenido)
 
-        val username = intent.getStringExtra("usuario")
-        val password = intent.getStringExtra("usuario")
+        val usuario = intent.getStringExtra("usuario")
+        val contrasenna = intent.getStringExtra("usuario")
 
-        tvWelcomeMessage.text = "Bienvenido, $username! Tu contraseña es: $password"
+        tvWelcomeMessage.text = "Bienvenido, $usuario!"
+
+        val botonCerrarSesion = findViewById<Button>(R.id.boronCerrarSesion)
+        botonCerrarSesion.setOnClickListener {
+            val intent = Intent(this, LogInActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
-
-
 }

@@ -11,7 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 class LogInActivity : AppCompatActivity() {
 
     private val MYUSER = "usuario"
-    private val MYPASS = "contrasena"
+    private val MYPASS = "usuario"
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,10 +27,9 @@ class LogInActivity : AppCompatActivity() {
             val password = etPassword.text.toString()
 
             if (username == MYUSER && password == MYPASS) {
-                // Si es correcto, inicia el Activity Principal
                 val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("username", username)
-                intent.putExtra("password", password)
+                intent.putExtra("usuario", username)
+                intent.putExtra("contrasenna", password)
                 startActivity(intent)
             } else {
                 Toast.makeText(this, "Usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show()
