@@ -69,9 +69,11 @@
                     android:id="@+id/etContrasenna"
                     android:textColor="@color/black"
                     android:textSize="25dp"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Contraseña" />
+                    android:ems="10"
+                    android:inputType="textPassword"
+                    android:hint="Contraseña"/>
             </FrameLayout>
 
             <FrameLayout
