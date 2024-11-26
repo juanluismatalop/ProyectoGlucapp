@@ -5,249 +5,91 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:backgroundTint="@null"
     android:background="@drawable/fondo"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <ImageView
+        android:id="@+id/logoEnMain"
+        android:layout_width="182dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="16dp"
+        app:srcCompat="@drawable/diabetapp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/Bienvenido"
+        android:text="Bienvenido"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/logoEnMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/Bienvenido"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/layoutMenu"/>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="97dp">
+    <LinearLayout
+        android:id="@+id/layoutMenu"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/ventana"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+        <!-- Botón Ajustes -->
+        <ImageButton
+            android:id="@+id/botonAjuste"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_main"
+            android:src="@drawable/ajustes"
+            android:scaleType="fitCenter" />
 
-                <FrameLayout
-                    android:layout_width="106dp"
-                    android:layout_height="match_parent">
+        <ImageButton
+            android:id="@+id/botonCalculadora"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_main"
+            android:src="@drawable/calculadora"
+            android:scaleType="fitCenter" />
 
-                </FrameLayout>
+        <ImageButton
+            android:id="@+id/botonMisDatos"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_main"
+            android:src="@drawable/misdatos"
+            android:scaleType="fitCenter" />
 
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/logoEnMain"
-                        android:layout_width="182dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        app:srcCompat="@drawable/diabetapp" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-
-            </LinearLayout>
-
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="42dp">
-
-            <TextView
-                android:id="@+id/Bienvenido"
-                android:textColor="@color/black"
-                android:textSize="25dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="533dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="168dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="146dp"
-                        android:background="@drawable/ventana"
-                        android:orientation="horizontal"
-                        app:backgroundTint="@null">
-
-                        <ImageView
-                            android:id="@+id/imageView2"
-                            android:layout_width="192dp"
-                            android:layout_height="158dp"
-                            android:layout_weight="1"
-                            tools:srcCompat="@drawable/catorceNoviembre" />
-
-                        <LinearLayout
-                            android:layout_width="348dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="79dp">
-
-                                <TextView
-                                    android:id="@+id/textView"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="30dp"
-                                    android:text="14 noviembre dia internacional de la Diabetes" />
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <TextView
-                                    android:id="@+id/textView2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="15dp"
-                                    android:text="El 14 de noviembre es el dia internacional de la diabetes ven a celebrarlo" />
-                            </FrameLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="142dp"
-                        android:background="@drawable/ventana"
-                        android:orientation="horizontal"
-                        app:backgroundTint="@null">
-
-                        <ImageView
-                            android:id="@+id/imageView3"
-                            android:layout_width="127dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            tools:srcCompat="@drawable/celulas" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="76dp">
-                                <TextView
-                                    android:id="@+id/textView4"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="30dp"
-                                    android:text="¿Posible cura a la diabetes?" />
-
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-                                <TextView
-                                    android:id="@+id/textView5"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="15dp"
-                                    android:text="Se ha descubierto en Japon que se puede curar la diabetes a base de celulas madre" />
-                            </FrameLayout>
-                        </LinearLayout>
-
-                        <androidx.constraintlayout.widget.Barrier
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            app:barrierDirection="top" />
-                    </LinearLayout>
-                </FrameLayout>
-            </LinearLayout>
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:backgroundTint="@null"
-            android:background="@drawable/ventana">
-
-            <LinearLayout
-                android:id="@+id/layoutMenu"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <FrameLayout
-                    android:layout_width="103dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/botonAjuste"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/boton_main"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:text="ajustes" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="97dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/botonCalculadora"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/boton_main"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:text="Calculadora" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="112dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/botonMisDatos"
-                        app:backgroundTint="@null"
-                        android:background="@drawable/boton_main"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@android:color/black"
-                        android:text="Mis Datos" />
-                </FrameLayout>
-
-                <FrameLayout
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent">
-
-                    <Button
-                        android:id="@+id/boronCerrarSesion"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/boton_main"
-                        android:text="Cerrar Sesion"
-                        android:textColor="@android:color/black"
-                        app:backgroundTint="@null" />
-                </FrameLayout>
-            </LinearLayout>
-        </FrameLayout>
+        <ImageButton
+            android:id="@+id/boronCerrarSesion"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/boton_main"
+            android:src="@drawable/cerrarsesion"
+            android:scaleType="fitCenter" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
