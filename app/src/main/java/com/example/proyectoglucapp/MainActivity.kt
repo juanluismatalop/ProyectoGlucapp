@@ -25,7 +25,17 @@ class MainActivity : AppCompatActivity() {
 
         noticiasList = mutableListOf(
             Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
-            Noticia("Nuevo tratamiento para diabetes tipo 2", "Un nuevo tratamiento basado en la insulina promete revolucionar el tratamiento de la diabetes tipo 2.")
+            Noticia("Nuevo tratamiento para diabetes tipo 2", "Un nuevo tratamiento basado en la insulina promete revolucionar el tratamiento de la diabetes tipo 2."),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre"),
+            Noticia("¿Posible cura a la diabetes?", "Se ha descubierto en Japón que se puede curar la diabetes a base de células madre")
         )
 
         adapter = NoticiasAdapter(noticiasList) { position ->
