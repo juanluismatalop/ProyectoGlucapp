@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 
 class NoticiasAdapter(
     private val noticiasList: MutableList<Noticia>,
-    private val onDeleteClick: (Int) -> Unit
+    private val onDeleteClick: (Int) -> Unit,
+    private val onEditClick: (Int) -> Unit,
+    private val onAddClick: () -> Unit
 ) : RecyclerView.Adapter<NoticiasAdapter.NoticiasViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoticiasViewHolder {
@@ -25,6 +27,10 @@ class NoticiasAdapter(
         holder.borrarButton.setOnClickListener {
             onDeleteClick(position)
         }
+
+        holder.editarButton.setOnClickListener {
+            onEditClick(position)
+        }
     }
 
     override fun getItemCount(): Int = noticiasList.size
@@ -38,5 +44,13 @@ class NoticiasAdapter(
         val titulo: TextView = itemView.findViewById(R.id.textView4)
         val descripcion: TextView = itemView.findViewById(R.id.textView5)
         val borrarButton: ImageButton = itemView.findViewById(R.id.imagebuttonDelete)
+        val editarButton: ImageButton = itemView.findViewById(R.id.imageButtonEditar)
+    }
+
+    fun addItem(noticia: Noticia) {
+        noticiasList.add(noticia)
+        notifyItemInserted(noticiasList.size - 1)
     }
 }
+
+

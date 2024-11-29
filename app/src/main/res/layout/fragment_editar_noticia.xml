@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/editTextTitulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título"
+        android:textSize="16sp"/>
+
+    <EditText
+        android:id="@+id/editTextDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descripción"
+        android:textSize="16sp"/>
+
+    <Button
+        app:backgroundTint="@null"
+        android:background="@drawable/botones"
+        android:id="@+id/buttonEditarNoticia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Noticia"/>
+</LinearLayout>
