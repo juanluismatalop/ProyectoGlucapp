@@ -18,8 +18,8 @@
         app:srcCompat="@drawable/diabetapp" />
 
     <LinearLayout
-        android:layout_width="355dp"
-        android:layout_height="485dp"
+        android:layout_width="349dp"
+        android:layout_height="258dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/ventana"
         android:orientation="vertical"
@@ -44,11 +44,11 @@
 
         <Button
             android:id="@+id/Validar"
-            app:backgroundTint="@null"
-            android:background="@drawable/botones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Iniciar sesión" />
+            android:background="@drawable/botones"
+            android:text="Iniciar sesión"
+            app:backgroundTint="@null" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -58,11 +58,11 @@
 
         <Button
             android:id="@+id/btnRegister"
-            app:backgroundTint="@null"
-            android:background="@drawable/botones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrarse" />
+            android:background="@drawable/botones"
+            android:text="Registrarse"
+            app:backgroundTint="@null" />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -70,13 +70,6 @@
 
         </FrameLayout>
 
-        <Button
-            android:id="@+id/btnForgotPassword"
-            android:layout_width="322dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/botones"
-            android:text="Recuperar contraseña"
-            app:backgroundTint="@null" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
