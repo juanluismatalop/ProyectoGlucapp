@@ -18,62 +18,70 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/diabetapp" />
 
-    <EditText
-        android:id="@+id/etUsuario"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Usuario"
-        android:inputType="textEmailAddress"
+    <LinearLayout
+        android:layout_width="394dp"
+        android:layout_height="539dp"
+        android:background="@drawable/ventana"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
 
-    <EditText
-        android:id="@+id/etContrasenna"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/etUsuario"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp">
 
-    <Button
-        android:id="@+id/Validar"
-        app:backgroundTint="@null"
-        android:background="@drawable/botones"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Iniciar Sesión"
-        app:layout_constraintTop_toBottomOf="@id/etContrasenna"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        </FrameLayout>
 
-    <Button
-        android:id="@+id/btnRegister"
-        app:backgroundTint="@null"
-        android:background="@drawable/botones"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Registrar"
-        app:layout_constraintTop_toBottomOf="@id/Validar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+            android:id="@+id/etUsuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
 
-    <Button
-        android:id="@+id/btnForgotPassword"
-        app:backgroundTint="@null"
-        android:background="@drawable/botones"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Recuperar Contraseña"
-        app:layout_constraintTop_toBottomOf="@id/btnRegister"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <EditText
+            android:id="@+id/etContrasenna"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Contraseña"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/Validar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/botones"
+            android:text="Iniciar Sesión"
+            app:backgroundTint="@null" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="167dp"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints">
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="199dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/botones"
+                android:text="Registrar"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/btnForgotPassword"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/botones"
+                android:text="Recuperar Contraseña"
+                app:backgroundTint="@null" />
+        </LinearLayout>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

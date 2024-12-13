@@ -45,46 +45,13 @@ class LogInActivity : AppCompatActivity() {
         }
 
         btnRegister.setOnClickListener {
-            val email = etUsername.text.toString()
-            val password = etPassword.text.toString()
-
-            if (email.isNotEmpty() && password.isNotEmpty()) {
-                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Toast.makeText(this, "Registro exitoso", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(
-                                this,
-                                "Error: ${task.exception?.message}",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-            } else {
-                Toast.makeText(this, "Por favor llena todos los campos", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
         }
 
         btnForgotPassword.setOnClickListener {
-            val email = etUsername.text.toString()
-
-            if (email.isNotEmpty()) {
-                FirebaseAuth.getInstance().sendPasswordResetEmail(email)
-                    .addOnCompleteListener { task ->
-                        if (task.isSuccessful) {
-                            Toast.makeText(this, "Correo de recuperación enviado", Toast.LENGTH_SHORT).show()
-                        } else {
-                            Toast.makeText(
-                                this,
-                                "Error: ${task.exception?.message}",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
-                    }
-            } else {
-                Toast.makeText(this, "Por favor ingresa tu correo electrónico", Toast.LENGTH_SHORT).show()
-            }
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
+            startActivity(intent)
         }
     }
 }

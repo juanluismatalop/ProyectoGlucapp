@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "274285365806",
+    "project_id": "glucoapp-b21d0",
+    "storage_bucket": "glucoapp-b21d0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:274285365806:android:08bbcd4ed236bf5637edbf",
+        "android_client_info": {
+          "package_name": "com.example.proyectoglucapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo-2qyK4G1C8dRfvz5xI8yL2zles_RYxY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
