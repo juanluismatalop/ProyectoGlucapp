@@ -9,7 +9,7 @@ Este proyecto se encuentra alojado en un repositorio específico que contiene to
 
 ---
 
-### Cambios Realizados desde la Versión 1.2
+### Cambios Realizados desde la Versión 1.3
 En esta versión, hemos realizado mejoras significativas en el sistema de autenticación y en las funcionalidades de la aplicación:
 
 - **Autenticación mejorada**:
