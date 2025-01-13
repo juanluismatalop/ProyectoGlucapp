@@ -1,13 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_noticias"
-        android:icon="@drawable/misdatos"
-        android:title="Noticias" />
-    <item
         android:id="@+id/nav_mis_datos"
-        android:icon="@drawable/ajustes"
+        android:icon="@drawable/misdatos"
         android:title="Mis Datos" />
+    <item
+        android:id="@+id/nav_ajustes"
+        android:icon="@drawable/ajustes"
+        android:title="Ajustes" />
     <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/cerrarsesion"
