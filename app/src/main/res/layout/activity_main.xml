@@ -98,14 +98,14 @@
                 android:src="@drawable/misdatos" />
 
             <ImageButton
-                android:id="@+id/boronCerrarSesion"
+                android:id="@+id/botonNoticias"
                 android:layout_width="0dp"
                 android:layout_height="48dp"
                 android:layout_weight="1"
                 android:background="@drawable/boton_main"
-                android:contentDescription="Cerrar Sesión"
+                android:contentDescription="Noticias"
                 android:scaleType="fitCenter"
-                android:src="@drawable/cerrarsesion" />
+                android:src="@drawable/noticias" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

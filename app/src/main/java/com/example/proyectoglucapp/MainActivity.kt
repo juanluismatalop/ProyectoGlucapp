@@ -1,5 +1,6 @@
 package com.example.proyectoglucapp
 
+import CalculadoraFragment
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -23,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout = binding.drawerLayout
         navView = binding.navView
 
-        // Configurar el toggle del DrawerLayout
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -34,7 +34,6 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
-        // Configuración del NavigationView
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
                 R.id.nav_noticias -> {
@@ -63,12 +62,10 @@ class MainActivity : AppCompatActivity() {
             true
         }
 
-        // Cargar el fragmento inicial
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, NoticiasRecycler())
             .commit()
 
-        // Configurar el saludo con el email del usuario
         val currentUser = FirebaseAuth.getInstance().currentUser
         val email = currentUser?.email
 
@@ -79,15 +76,12 @@ class MainActivity : AppCompatActivity() {
             binding.Bienvenido.text = "Bienvenido, Usuario!"
         }
 
-        // Listener para el botón "Cerrar Sesión"
-        binding.boronCerrarSesion.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val intent = Intent(this, LogInActivity::class.java)
-            startActivity(intent)
-            finish()
+        binding.botonNoticias.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, NoticiasRecycler())
+                .commit()
         }
 
-        // Configurar los botones para cambiar el fragment
         binding.botonMisDatos.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, MisDatosFragment())
