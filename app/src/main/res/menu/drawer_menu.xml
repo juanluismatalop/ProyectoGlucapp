@@ -9,6 +9,14 @@
         android:icon="@drawable/ajustes"
         android:title="Ajustes" />
     <item
+        android:id="@+id/nav_tablas"
+        android:icon="@drawable/tablas"
+        android:title="Fotos tablas" />
+    <item
+        android:id="@+id/nav_video"
+        android:icon="@drawable/video"
+        android:title="Video Explicativo" />
+    <item
         android:id="@+id/nav_logout"
         android:icon="@drawable/cerrarsesion"
         android:title="Cerrar Sesión" />
