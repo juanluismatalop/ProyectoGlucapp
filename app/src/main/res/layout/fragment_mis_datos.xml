@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".MisDatosFragment">
+    tools:context=".fragment.misDatos.MisDatosFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:hint="1 Unidad de Insulina para 100 de niveles de azucar"
                         android:background="@drawable/ventana"
                         android:padding="8dp"
@@ -80,7 +80,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:hint="2(Unidades/HC)"
                         android:background="@drawable/ventana"
                         android:padding="8dp"
@@ -115,7 +115,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:hint="1.1(Unidades/HC)"
                         android:background="@drawable/ventana"
                         android:padding="8dp"
@@ -150,7 +150,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:hint="1(Unidades/HC)"
                         android:background="@drawable/ventana"
                         android:padding="8dp"
@@ -185,7 +185,7 @@
                         android:layout_width="150dp"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="text"
+                        android:inputType="numberDecimal"
                         android:hint="1.5(Unidades/HC)"
                         android:background="@drawable/ventana"
                         android:padding="8dp"

@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.fragment.misDatos
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,9 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyectoglucapp.R
+import com.example.proyectoglucapp.viewModel.misDatos_Calculadora.SharedViewModel
+import com.example.proyectoglucapp.fragment.calculadora.CalculadoraFragment
 
 class MisDatosFragment : Fragment() {
 
@@ -44,11 +47,18 @@ class MisDatosFragment : Fragment() {
     }
 
     private fun guardarDatosYEnviar() {
-        val sensibilidadStr = factorDeSensibilidad.text.toString()
-        val mananaStr = ratioManana.text.toString()
-        val medioDiaStr = ratioMedioDia.text.toString()
-        val tardeStr = ratioTarde.text.toString()
-        val nocheStr = ratioNoche.text.toString()
+        var sensibilidadStr = factorDeSensibilidad.text.toString()
+        var mananaStr = ratioManana.text.toString()
+        var medioDiaStr = ratioMedioDia.text.toString()
+        var tardeStr = ratioTarde.text.toString()
+        var nocheStr = ratioNoche.text.toString()
+
+
+        sensibilidadStr = sensibilidadStr.replace(',', '.')
+        mananaStr = mananaStr.replace(',', '.')
+        medioDiaStr = medioDiaStr.replace(',', '.')
+        tardeStr = tardeStr.replace(',', '.')
+        nocheStr = nocheStr.replace(',', '.')
 
         if (sensibilidadStr.isBlank() || mananaStr.isBlank() ||
             medioDiaStr.isBlank() || tardeStr.isBlank() || nocheStr.isBlank()) {
@@ -83,6 +93,7 @@ class MisDatosFragment : Fragment() {
             Toast.makeText(requireContext(), "Por favor, ingresa valores numéricos válidos.", Toast.LENGTH_SHORT).show()
         }
     }
+
 
     private fun validarDatos(
         sensibilidad: Double,

@@ -1,10 +1,18 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.Activity.Main
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.proyectoglucapp.Activity.Login.LogInActivity
+import com.example.proyectoglucapp.fragment.Ajustes.AjustesFragment
+import com.example.proyectoglucapp.fragment.calculadora.CalculadoraFragment
+import com.example.proyectoglucapp.fragment.misDatos.MisDatosFragment
+import com.example.proyectoglucapp.fragment.Noticias.Recycler.NoticiasRecycler
+import com.example.proyectoglucapp.R
+import com.example.proyectoglucapp.fragment.tablas.TablasFragment
+import com.example.proyectoglucapp.fragment.video.VideoFragment
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth

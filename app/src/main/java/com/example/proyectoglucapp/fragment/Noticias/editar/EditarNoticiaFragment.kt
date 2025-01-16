@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.fragment.Noticias.editar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import com.example.proyectoglucapp.R
+import com.example.proyectoglucapp.fragment.Noticias.Noticia.Noticia
 
 class EditarNoticiaFragment : Fragment() {
 

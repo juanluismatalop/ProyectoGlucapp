@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.fragment.Noticias.Noticia
 
 data class Noticia(
     var titulo: String,

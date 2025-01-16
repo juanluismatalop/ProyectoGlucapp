@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.fragment.Noticias
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.proyectoglucapp.R
+import com.example.proyectoglucapp.fragment.Noticias.Noticia.Noticia
 
 class NoticiasAdapter(
     private val noticiasList: MutableList<Noticia>,

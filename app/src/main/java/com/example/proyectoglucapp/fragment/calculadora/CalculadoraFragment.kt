@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp
+package com.example.proyectoglucapp.fragment.calculadora
 
 import android.os.Bundle
 import android.text.Editable
@@ -12,6 +12,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.proyectoglucapp.R
+import com.example.proyectoglucapp.viewModel.misDatos_Calculadora.SharedViewModel
 
 class CalculadoraFragment : Fragment() {
 
