@@ -8,8 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+import androidx.lifecycle.ViewModelProvider
 
 class MisDatosFragment : Fragment() {
 
@@ -20,11 +19,15 @@ class MisDatosFragment : Fragment() {
     private lateinit var ratioNoche: EditText
     private lateinit var saveButton: Button
 
+    private lateinit var sharedViewModel: SharedViewModel
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_mis_datos, container, false)
+
+        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
         factorDeSensibilidad = view.findViewById(R.id.factorDeSensibilidad)
         ratioManana = view.findViewById(R.id.ratioMannana)
@@ -65,28 +68,17 @@ class MisDatosFragment : Fragment() {
                 return
             }
 
-            guardarDatosEnFirebase(sensibilidad, manana, medioDia, tarde, noche) { exitoso ->
-                if (exitoso) {
-                    val bundle = Bundle().apply {
-                        putFloat("sensibilidad", sensibilidad)
-                        putFloat("manana", manana)
-                        putFloat("medioDia", medioDia)
-                        putFloat("tarde", tarde)
-                        putFloat("noche", noche)
-                    }
+            sharedViewModel.sensibilidad = sensibilidad
+            sharedViewModel.ratioManana = manana
+            sharedViewModel.ratioMediodia = medioDia
+            sharedViewModel.ratioTarde = tarde
+            sharedViewModel.ratioNoche = noche
 
-                    val calculadoraFragment = CalculadoraFragment().apply {
-                        arguments = bundle
-                    }
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.fragment_container, CalculadoraFragment())
+                .addToBackStack(null)
+                .commit()
 
-                    parentFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container, calculadoraFragment)
-                        .addToBackStack(null)
-                        .commit()
-                } else {
-                    Toast.makeText(requireContext(), "No se pudo guardar en Firebase.", Toast.LENGTH_SHORT).show()
-                }
-            }
         } catch (e: NumberFormatException) {
             Toast.makeText(requireContext(), "Por favor, ingresa valores numéricos válidos.", Toast.LENGTH_SHORT).show()
         }
@@ -108,36 +100,5 @@ class MisDatosFragment : Fragment() {
 
     private fun tieneUnaDecimal(numero: Float): Boolean {
         return "%.1f".format(numero).toFloat() == numero
-    }
-
-    private fun guardarDatosEnFirebase(
-        sensibilidad: Float,
-        manana: Float,
-        medioDia: Float,
-        tarde: Float,
-        noche: Float,
-        onComplete: (Boolean) -> Unit
-    ) {
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        if (currentUser == null) {
-            Toast.makeText(requireContext(), "Usuario no autenticado.", Toast.LENGTH_SHORT).show()
-            onComplete(false)
-            return
-        }
-
-        val userId = currentUser.uid
-        val databaseRef = FirebaseDatabase.getInstance().getReference("users").child(userId)
-
-        val userData = mapOf(
-            "sensibilidad" to sensibilidad,
-            "manana" to manana,
-            "medioDia" to medioDia,
-            "tarde" to tarde,
-            "noche" to noche
-        )
-
-        databaseRef.setValue(userData).addOnCompleteListener { task ->
-            onComplete(task.isSuccessful)
-        }
     }
 }
