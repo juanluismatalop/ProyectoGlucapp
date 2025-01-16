@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
-    tools:context=".fragment.AjustesFragment">
+    tools:context=".fragment.Ajustes.AjustesFragment">
 
     <ImageView
         android:id="@+id/imageView2"
