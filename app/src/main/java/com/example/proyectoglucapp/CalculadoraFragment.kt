@@ -87,15 +87,15 @@ class CalculadoraFragment : Fragment() {
 
         try {
             val nivelGlucosa = nivelGlucosaStr.toInt()
-            val racionesComida = racionesComidaStr.toFloat()
-            val ratioManana = sharedViewModel.ratioManana ?: 0f
-            val ratioMediodia = sharedViewModel.ratioMediodia ?: 0f
-            val ratioTarde = sharedViewModel.ratioTarde ?: 0f
-            val ratioNoche = sharedViewModel.ratioNoche ?: 0f
-            val sensibilidad = sharedViewModel.sensibilidad ?: 0f
+            val racionesComida = racionesComidaStr.toDouble()
+            val ratioManana = sharedViewModel.ratioManana ?: 0.0
+            val ratioMediodia = sharedViewModel.ratioMediodia ?: 0.0
+            val ratioTarde = sharedViewModel.ratioTarde ?: 0.0
+            val ratioNoche = sharedViewModel.ratioNoche ?: 0.0
+            val sensibilidad = sharedViewModel.sensibilidad ?: 0.0
 
-            if (nivelGlucosa == 0 || racionesComida == 0f || ratioManana == 0f ||
-                ratioMediodia == 0f || ratioTarde == 0f || ratioNoche == 0f || sensibilidad == 0f) {
+            if (nivelGlucosa == 0 || racionesComida == 0.0 || ratioManana == 0.0 ||
+                ratioMediodia == 0.0 || ratioTarde == 0.0 || ratioNoche == 0.0 || sensibilidad == 0.0) {
                 valueManana.text = "Datos incompletos"
                 valueMediodia.text = "Datos incompletos"
                 valueTarde.text = "Datos incompletos"
@@ -103,7 +103,7 @@ class CalculadoraFragment : Fragment() {
                 return
             }
 
-            if (sensibilidad == 0f) {
+            if (sensibilidad == 0.0) {
                 Toast.makeText(requireContext(), "El valor de sensibilidad no es válido.", Toast.LENGTH_SHORT).show()
                 return
             }
@@ -117,16 +117,15 @@ class CalculadoraFragment : Fragment() {
 
             val ajusteSensibilidad = i * sensibilidad
 
-
             val resultadoManana = (ratioManana * racionesComida) + ajusteSensibilidad
             val resultadoMediodia = (ratioMediodia * racionesComida) + ajusteSensibilidad
             val resultadoTarde = (ratioTarde * racionesComida) + ajusteSensibilidad
             val resultadoNoche = (ratioNoche * racionesComida) + ajusteSensibilidad
 
-            valueManana.text = String.format("%.2f", resultadoManana)
-            valueMediodia.text = String.format("%.2f", resultadoMediodia)
-            valueTarde.text = String.format("%.2f", resultadoTarde)
-            valueNoche.text = String.format("%.2f", resultadoNoche)
+            valueManana.text = String.format("%.1f", resultadoManana)
+            valueMediodia.text = String.format("%.1f", resultadoMediodia)
+            valueTarde.text = String.format("%.1f", resultadoTarde)
+            valueNoche.text = String.format("%.1f", resultadoNoche)
 
         } catch (e: NumberFormatException) {
             Toast.makeText(requireContext(), "Por favor, ingresa valores numéricos válidos.", Toast.LENGTH_SHORT).show()

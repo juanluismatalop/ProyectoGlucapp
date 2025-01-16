@@ -57,11 +57,11 @@ class MisDatosFragment : Fragment() {
         }
 
         try {
-            val sensibilidad = sensibilidadStr.toFloat()
-            val manana = mananaStr.toFloat()
-            val medioDia = medioDiaStr.toFloat()
-            val tarde = tardeStr.toFloat()
-            val noche = nocheStr.toFloat()
+            val sensibilidad = sensibilidadStr.toDouble()
+            val manana = mananaStr.toDouble()
+            val medioDia = medioDiaStr.toDouble()
+            val tarde = tardeStr.toDouble()
+            val noche = nocheStr.toDouble()
 
             if (!validarDatos(sensibilidad, manana, medioDia, tarde, noche)) {
                 Toast.makeText(requireContext(), "Los valores deben ser mayores a 0 y con 1 decimal.", Toast.LENGTH_SHORT).show()
@@ -85,11 +85,11 @@ class MisDatosFragment : Fragment() {
     }
 
     private fun validarDatos(
-        sensibilidad: Float,
-        manana: Float,
-        medioDia: Float,
-        tarde: Float,
-        noche: Float
+        sensibilidad: Double,
+        manana: Double,
+        medioDia: Double,
+        tarde: Double,
+        noche: Double
     ): Boolean {
         return sensibilidad > 0 && tieneUnaDecimal(sensibilidad) &&
                 manana > 0 && tieneUnaDecimal(manana) &&
@@ -98,7 +98,7 @@ class MisDatosFragment : Fragment() {
                 noche > 0 && tieneUnaDecimal(noche)
     }
 
-    private fun tieneUnaDecimal(numero: Float): Boolean {
-        return "%.1f".format(numero).toFloat() == numero
+    private fun tieneUnaDecimal(numero: Double): Boolean {
+        return "%.1f".format(numero).toDouble() == numero
     }
 }
