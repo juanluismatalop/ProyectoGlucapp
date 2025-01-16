@@ -53,13 +53,6 @@ class MisDatosFragment : Fragment() {
         var tardeStr = ratioTarde.text.toString()
         var nocheStr = ratioNoche.text.toString()
 
-
-        sensibilidadStr = sensibilidadStr.replace(',', '.')
-        mananaStr = mananaStr.replace(',', '.')
-        medioDiaStr = medioDiaStr.replace(',', '.')
-        tardeStr = tardeStr.replace(',', '.')
-        nocheStr = nocheStr.replace(',', '.')
-
         if (sensibilidadStr.isBlank() || mananaStr.isBlank() ||
             medioDiaStr.isBlank() || tardeStr.isBlank() || nocheStr.isBlank()) {
             Toast.makeText(requireContext(), "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show()
