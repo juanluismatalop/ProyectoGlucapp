@@ -39,6 +39,13 @@ class MisDatosFragment : Fragment() {
         ratioNoche = view.findViewById(R.id.ratioNoche)
         saveButton = view.findViewById(R.id.button)
 
+        // Configurar los EditText para permitir solo números con un decimal
+        configurarEntradaNumerica(factorDeSensibilidad)
+        configurarEntradaNumerica(ratioManana)
+        configurarEntradaNumerica(ratioMedioDia)
+        configurarEntradaNumerica(ratioTarde)
+        configurarEntradaNumerica(ratioNoche)
+
         saveButton.setOnClickListener {
             guardarDatosYEnviar()
         }
@@ -46,12 +53,31 @@ class MisDatosFragment : Fragment() {
         return view
     }
 
+    private fun configurarEntradaNumerica(editText: EditText) {
+        // Configurar el teclado para que solo acepte números decimales
+        editText.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_DECIMAL
+
+        // Limitar el número de decimales a 1 usando un filtro
+        editText.filters = arrayOf(android.text.InputFilter { source, start, end, dest, dstart, dend ->
+            val resultado = StringBuilder(dest).replace(dstart, dend, source.subSequence(start, end).toString())
+            if (resultado.toString().matches(Regex("^\\d*\\.?\\d{0,1}\$"))) {
+                return@InputFilter null
+            }
+            return@InputFilter ""
+        })
+    }
+
     private fun guardarDatosYEnviar() {
-        var sensibilidadStr = factorDeSensibilidad.text.toString()
-        var mananaStr = ratioManana.text.toString()
-        var medioDiaStr = ratioMedioDia.text.toString()
-        var tardeStr = ratioTarde.text.toString()
-        var nocheStr = ratioNoche.text.toString()
+        val sensibilidadStr = factorDeSensibilidad.text.toString()
+            .replace(",", ".") // Reemplazar comas por puntos
+        val mananaStr = ratioManana.text.toString()
+            .replace(",", ".")
+        val medioDiaStr = ratioMedioDia.text.toString()
+            .replace(",", ".")
+        val tardeStr = ratioTarde.text.toString()
+            .replace(",", ".")
+        val nocheStr = ratioNoche.text.toString()
+            .replace(",", ".")
 
         if (sensibilidadStr.isBlank() || mananaStr.isBlank() ||
             medioDiaStr.isBlank() || tardeStr.isBlank() || nocheStr.isBlank()) {
