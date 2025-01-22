@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.fragment.Noticias.Noticia.Noticia
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.Noticia.Noticia
 
 class AgregarNoticiaFragment : Fragment() {
 

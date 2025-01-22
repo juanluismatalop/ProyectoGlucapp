@@ -7,7 +7,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.fragment.Noticias.Noticia.Noticia
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.Noticia.Noticia
 
 class NoticiasAdapter(
     private val noticiasList: MutableList<Noticia>,

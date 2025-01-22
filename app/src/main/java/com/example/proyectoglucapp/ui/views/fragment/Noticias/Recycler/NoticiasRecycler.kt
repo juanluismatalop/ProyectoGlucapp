@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.proyectoglucapp.fragment.Noticias.NoticiasAdapter
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.NoticiasAdapter
 import com.example.proyectoglucapp.R
 import com.example.proyectoglucapp.databinding.FragmentNoticiasRecyclerBinding
-import com.example.proyectoglucapp.fragment.Noticias.Agregar.AgregarNoticiaFragment
-import com.example.proyectoglucapp.fragment.Noticias.Noticia.Noticia
-import com.example.proyectoglucapp.fragment.Noticias.editar.EditarNoticiaFragment
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.Agregar.AgregarNoticiaFragment
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.Noticia.Noticia
+import com.example.proyectoglucapp.ui.views.fragment.Noticias.editar.EditarNoticiaFragment
 
 class NoticiasRecycler : Fragment() {
     private var _binding: FragmentNoticiasRecyclerBinding? = null

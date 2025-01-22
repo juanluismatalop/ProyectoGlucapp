@@ -7,12 +7,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.proyectoglucapp.ui.views.Activity.Login.LogInActivity
 import com.example.proyectoglucapp.ui.views.fragment.Ajustes.AjustesFragment
-import com.example.proyectoglucapp.fragment.calculadora.CalculadoraFragment
+import com.example.proyectoglucapp.ui.views.fragment.calculadora.CalculadoraFragment
 import com.example.proyectoglucapp.ui.views.fragment.misDatos.MisDatosFragment
 import com.example.proyectoglucapp.ui.views.fragment.Noticias.Recycler.NoticiasRecycler
 import com.example.proyectoglucapp.R
 import com.example.proyectoglucapp.ui.views.fragment.tablas.TablasFragment
-import com.example.proyectoglucapp.fragment.video.VideoFragment
+import com.example.proyectoglucapp.ui.views.fragment.video.VideoFragment
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
