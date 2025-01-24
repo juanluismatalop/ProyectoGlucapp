@@ -11,9 +11,9 @@ import com.example.proyectoglucapp.ui.views.fragment.calculadora.CalculadoraFrag
 import com.example.proyectoglucapp.ui.views.fragment.misDatos.MisDatosFragment
 import com.example.proyectoglucapp.ui.views.fragment.Noticias.Recycler.NoticiasRecycler
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.ui.views.fragment.tablas.TablasFragment
 import com.example.proyectoglucapp.ui.views.fragment.video.VideoFragment
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
+import com.example.proyectoglucapp.ui.views.fragment.tablas.TablasFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 
@@ -28,9 +28,21 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        drawerLayout = binding.drawerLayout
-        navView = binding.navView
+        setupDrawerLayout()
+        setupNavigationView()
+        setupBottomButtons()
 
+        // Mostrar el fragmento inicial
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, NoticiasRecycler())
+            .commit()
+
+        // Configurar el texto de bienvenida
+        displayWelcomeMessage()
+    }
+
+    private fun setupDrawerLayout() {
+        drawerLayout = binding.drawerLayout
         val toggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
@@ -40,96 +52,61 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
+    }
 
+    private fun setupNavigationView() {
+        navView = binding.navView
         navView.setNavigationItemSelectedListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.nav_mis_datos -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container,
-                            MisDatosFragment()
-                        )
-                        .commit()
-                }
-                R.id.nav_ajustes -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.fragment_container,
-                            AjustesFragment()
-                        )
-                        .commit()
-                }
-                R.id.nav_tablas -> {
-                    FirebaseAuth.getInstance().signOut()
-                    val intent = Intent(this, TablasFragment::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.nav_video -> {
-                    FirebaseAuth.getInstance().signOut()
-                    val intent = Intent(this, VideoFragment::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                R.id.nav_logout -> {
-                    FirebaseAuth.getInstance().signOut()
-                    val intent = Intent(this, LogInActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
+                R.id.nav_mis_datos -> navigateToFragment(MisDatosFragment())
+                R.id.nav_ajustes -> navigateToFragment(AjustesFragment())
+                R.id.nav_tablas -> navigateToActivity(TablasFragment::class.java)
+                R.id.nav_video -> navigateToActivity(VideoFragment::class.java)
+                R.id.nav_logout -> logoutUser()
             }
             drawerLayout.closeDrawers()
             true
         }
+    }
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container,
-                NoticiasRecycler()
-            )
-            .commit()
-
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        val email = currentUser?.email
-
-        if (email != null) {
-            val username = email.substringBefore("@")
-            binding.Bienvenido.text = "Bienvenido, $username!"
-        } else {
-            binding.Bienvenido.text = "Bienvenido, Usuario!"
-        }
-
+    private fun setupBottomButtons() {
         binding.botonNoticias.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container,
-                    NoticiasRecycler()
-                )
-                .commit()
+            navigateToFragment(NoticiasRecycler())
         }
         binding.botonAjuste.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container,
-                    AjustesFragment()
-                )
-                .commit()
+            navigateToFragment(AjustesFragment())
         }
-
         binding.botonMisDatos.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container,
-                    MisDatosFragment()
-                )
-                .commit()
+            navigateToFragment(MisDatosFragment())
         }
-
         binding.botonCalculadora.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, CalculadoraFragment())
-                .commit()
+            navigateToFragment(CalculadoraFragment())
         }
     }
+
+    private fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .commit()
+    }
+
+    private fun <T> navigateToActivity(activityClass: Class<T>) {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun logoutUser() {
+        FirebaseAuth.getInstance().signOut()
+        val intent = Intent(this, LogInActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
+
+    private fun displayWelcomeMessage() {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        val email = currentUser?.email
+        val username = email?.substringBefore("@") ?: "Usuario"
+        binding.Bienvenido.text = "Bienvenido, $username!"
+    }
 }
-
-
-
-
-
-
-
