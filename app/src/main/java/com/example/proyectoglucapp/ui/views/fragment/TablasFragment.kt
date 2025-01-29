@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.fragment.tablas
+package com.example.proyectoglucapp.ui.views.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

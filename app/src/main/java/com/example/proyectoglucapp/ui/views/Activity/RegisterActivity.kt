@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.Activity.registrar
+package com.example.proyectoglucapp.ui.views.Activity
 
 import android.annotation.SuppressLint
 import android.os.Bundle

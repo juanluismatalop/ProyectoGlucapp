@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.fragment.misDatos
+package com.example.proyectoglucapp.ui.views.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoglucapp.R
 import com.example.proyectoglucapp.ui.viewModel.misDatos_Calculadora.SharedViewModel
-import com.example.proyectoglucapp.ui.views.fragment.calculadora.CalculadoraFragment
 
 class MisDatosFragment : Fragment() {
 

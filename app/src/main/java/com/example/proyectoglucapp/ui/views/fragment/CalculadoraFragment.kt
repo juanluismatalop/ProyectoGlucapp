@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.fragment.calculadora
+package com.example.proyectoglucapp.ui.views.fragment
 
 import android.os.Bundle
 import android.text.Editable

@@ -5,15 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.proyectoglucapp.ui.views.Activity.Login.LogInActivity
-import com.example.proyectoglucapp.ui.views.fragment.Ajustes.AjustesFragment
-import com.example.proyectoglucapp.ui.views.fragment.calculadora.CalculadoraFragment
-import com.example.proyectoglucapp.ui.views.fragment.misDatos.MisDatosFragment
 import com.example.proyectoglucapp.ui.views.fragment.Noticias.Recycler.NoticiasRecycler
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.ui.views.fragment.video.VideoFragment
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
-import com.example.proyectoglucapp.ui.views.fragment.tablas.TablasFragment
+import com.example.proyectoglucapp.ui.views.Activity.LogInActivity
+import com.example.proyectoglucapp.ui.views.fragment.AjustesFragment
+import com.example.proyectoglucapp.ui.views.fragment.CalculadoraFragment
+import com.example.proyectoglucapp.ui.views.fragment.MisDatosFragment
+import com.example.proyectoglucapp.ui.views.fragment.TablasFragment
+import com.example.proyectoglucapp.ui.views.fragment.VideoFragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 

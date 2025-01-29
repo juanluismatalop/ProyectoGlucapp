@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.fragment.video
+package com.example.proyectoglucapp.ui.views.fragment
 
 import androidx.fragment.app.Fragment
 

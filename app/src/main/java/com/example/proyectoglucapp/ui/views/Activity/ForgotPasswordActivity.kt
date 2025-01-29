@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.views.Activity.OlvidarContrasenna
+package com.example.proyectoglucapp.ui.views.Activity
 
 import android.os.Bundle
 import android.widget.Button

@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/ajustesFragment"
-        android:name="com.example.proyectoglucapp.ui.views.fragment.Ajustes.AjustesFragment"
+        android:name="com.example.proyectoglucapp.ui.views.fragment.AjustesFragment"
         android:label="fragment_ajustes"
         tools:layout="@layout/fragment_ajustes" >
         <action
@@ -38,7 +38,7 @@
 
     <fragment
         android:id="@+id/calculadoraFragment"
-        android:name="com.example.proyectoglucapp.ui.views.fragment.calculadora.CalculadoraFragment"
+        android:name="com.example.proyectoglucapp.ui.views.fragment.CalculadoraFragment"
         android:label="CalculadoraFragment" >
         <action
             android:id="@+id/action_calculadoraFragment_to_noticiasRecycler"
@@ -53,7 +53,7 @@
 
     <fragment
         android:id="@+id/misDatosFragment"
-        android:name="com.example.proyectoglucapp.ui.views.fragment.misDatos.MisDatosFragment"
+        android:name="com.example.proyectoglucapp.ui.views.fragment.MisDatosFragment"
         android:label="fragment_mis_datos"
         tools:layout="@layout/fragment_mis_datos" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/tablasFragment"
-        android:name="com.example.proyectoglucapp.ui.views.fragment.tablas.TablasFragment"
+        android:name="com.example.proyectoglucapp.ui.views.fragment.TablasFragment"
         android:label="TablasFragment" >
         <action
             android:id="@+id/action_tablasFragment_to_ajustesFragment"
