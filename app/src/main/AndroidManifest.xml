@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.views.Activity.MainActivity"
+            android:name=".ui.views.Activity.Main.MainActivity"
             android:exported="false" />
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.proyectoglucapp.ui.viewModel.misDatos_Calculadora
+package com.example.proyectoglucapp.ui.viewModel
 
 import androidx.lifecycle.ViewModel
 

@@ -2,6 +2,8 @@ package com.example.proyectoglucapp.ui.views.Activity.Main
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -15,13 +17,15 @@ import com.example.proyectoglucapp.ui.views.fragment.MisDatosFragment
 import com.example.proyectoglucapp.ui.views.fragment.TablasFragment
 import com.example.proyectoglucapp.ui.views.fragment.VideoFragment
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
+import com.example.proyectoglucapp.ui.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var navView: NavigationView
+
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,14 +35,15 @@ class MainActivity : AppCompatActivity() {
         setupDrawerLayout()
         setupNavigationView()
         setupBottomButtons()
+        setupBackPressedHandler()
 
-        // Mostrar el fragmento inicial
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, NoticiasRecycler())
-            .commit()
+        mainViewModel.username.observe(this) { username ->
+            binding.Bienvenido.text = "Bienvenido, $username!"
+        }
 
-        // Configurar el texto de bienvenida
-        displayWelcomeMessage()
+        if (savedInstanceState == null) {
+            navigateToFragment(NoticiasRecycler())
+        }
     }
 
     private fun setupDrawerLayout() {
@@ -60,8 +65,8 @@ class MainActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.nav_mis_datos -> navigateToFragment(MisDatosFragment())
                 R.id.nav_ajustes -> navigateToFragment(AjustesFragment())
-                R.id.nav_tablas -> navigateToActivity(TablasFragment::class.java)
-                R.id.nav_video -> navigateToActivity(VideoFragment::class.java)
+                R.id.nav_tablas -> navigateToFragment(TablasFragment())
+                R.id.nav_video -> navigateToFragment(VideoFragment())
                 R.id.nav_logout -> logoutUser()
             }
             drawerLayout.closeDrawers()
@@ -87,26 +92,25 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .commit()
-    }
-
-    private fun <T> navigateToActivity(activityClass: Class<T>) {
-        val intent = Intent(this, activityClass)
-        startActivity(intent)
-        finish()
+            .commitAllowingStateLoss()
     }
 
     private fun logoutUser() {
-        FirebaseAuth.getInstance().signOut()
+        mainViewModel.logout()
         val intent = Intent(this, LogInActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    private fun displayWelcomeMessage() {
-        val currentUser = FirebaseAuth.getInstance().currentUser
-        val email = currentUser?.email
-        val username = email?.substringBefore("@") ?: "Usuario"
-        binding.Bienvenido.text = "Bienvenido, $username!"
+    private fun setupBackPressedHandler() {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (drawerLayout.isDrawerOpen(navView)) {
+                    drawerLayout.closeDrawers()
+                } else {
+                    finish()
+                }
+            }
+        })
     }
 }

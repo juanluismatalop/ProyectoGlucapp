@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.ui.viewModel.misDatos_Calculadora.SharedViewModel
+import com.example.proyectoglucapp.ui.viewModel.SharedViewModel
 
 class MisDatosFragment : Fragment() {
 
