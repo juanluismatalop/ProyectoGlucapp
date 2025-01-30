@@ -1,8 +1,11 @@
 package com.example.proyectoglucapp.ui.viewModel
 
 import androidx.lifecycle.ViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class SharedViewModel : ViewModel() {
+@HiltViewModel
+class CalculadoraMisDatosViewModel @Inject constructor() : ViewModel() {
     var sensibilidad: Double? = null
     var ratioManana: Double? = null
     var ratioMediodia: Double? = null

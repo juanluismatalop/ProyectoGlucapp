@@ -10,7 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.ui.viewModel.SharedViewModel
+import com.example.proyectoglucapp.ui.viewModel.CalculadoraMisDatosViewModel
 
 class MisDatosFragment : Fragment() {
 
@@ -21,7 +21,7 @@ class MisDatosFragment : Fragment() {
     private lateinit var ratioNoche: EditText
     private lateinit var saveButton: Button
 
-    private lateinit var sharedViewModel: SharedViewModel
+    private lateinit var sharedViewModel: CalculadoraMisDatosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +29,7 @@ class MisDatosFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_mis_datos, container, false)
 
-        sharedViewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProvider(requireActivity()).get(CalculadoraMisDatosViewModel::class.java)
 
         factorDeSensibilidad = view.findViewById(R.id.factorDeSensibilidad)
         ratioManana = view.findViewById(R.id.ratioMannana)
