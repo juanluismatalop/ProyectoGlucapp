@@ -128,6 +128,6 @@ class MisDatosFragment : Fragment() {
     }
 
     private fun tieneUnaDecimal(numero: Double): Boolean {
-        return "%.1f".format(numero).toDouble() == numero
+        return (numero * 10) % 1 == 0.0
     }
 }
