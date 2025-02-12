@@ -1,5 +1,6 @@
 package com.example.proyectoglucapp.ui.views.Activity.Main
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.OnBackPressedCallback
@@ -7,17 +8,19 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.proyectoglucapp.ui.views.fragment.Noticias.Recycler.NoticiasRecycler
+
 import com.example.proyectoglucapp.R
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
+import com.example.proyectoglucapp.ui.view.fragment.NoticiasRecycler
+
 import com.example.proyectoglucapp.ui.views.Activity.LogInActivity
 import com.example.proyectoglucapp.ui.views.fragment.AjustesFragment
 import com.example.proyectoglucapp.ui.views.fragment.CalculadoraFragment
 import com.example.proyectoglucapp.ui.views.fragment.MisDatosFragment
-import com.example.proyectoglucapp.ui.views.fragment.TablasFragment
 import com.example.proyectoglucapp.ui.views.fragment.VideoFragment
 import com.google.android.material.navigation.NavigationView
 import com.example.proyectoglucapp.ui.viewModel.MainViewModel
+import com.example.proyectoglucapp.ui.views.fragment.TablasFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -92,7 +95,7 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToFragment(fragment: androidx.fragment.app.Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragment_container, fragment)
-            .commitAllowingStateLoss()
+            .commit()
     }
 
     private fun logoutUser() {

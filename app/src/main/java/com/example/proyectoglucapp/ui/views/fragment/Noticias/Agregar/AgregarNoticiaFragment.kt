@@ -8,7 +8,7 @@ import android.widget.EditText
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import com.example.proyectoglucapp.R
-import com.example.proyectoglucapp.ui.views.fragment.Noticias.Noticia.Noticia
+import com.example.proyectoglucapp.domain.models.Noticia
 
 class AgregarNoticiaFragment : Fragment() {
 
@@ -32,7 +32,7 @@ class AgregarNoticiaFragment : Fragment() {
             val descripcion = descripcionEditText.text.toString()
 
             if (titulo.isNotEmpty() && descripcion.isNotEmpty()) {
-                val noticia = Noticia(titulo, descripcion)
+                val noticia = Noticia(titulo = titulo, descripcion = descripcion)
                 onNoticiaAdded(noticia)
                 parentFragmentManager.popBackStack()
             }
