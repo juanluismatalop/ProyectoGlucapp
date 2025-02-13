@@ -43,6 +43,22 @@ android {
 }
 
 dependencies {
+
+    implementation("io.ktor:ktor-server-core:2.3.5")
+    implementation("io.ktor:ktor-server-netty:2.3.5")
+
+    implementation("io.ktor:ktor-server-content-negotiation:2.3.5")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.5")
+
+    implementation("org.jetbrains.exposed:exposed-core:0.43.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.43.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.43.0")
+    implementation("org.xerial:sqlite-jdbc:3.42.0.0")
+
+    implementation("io.ktor:ktor-server-auth:2.3.5")
+    implementation("io.ktor:ktor-server-auth-jwt:2.3.5")
+    
+    implementation("at.favre.lib:bcrypt:0.9.0")
     implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation(libs.firebase.auth.ktx)
