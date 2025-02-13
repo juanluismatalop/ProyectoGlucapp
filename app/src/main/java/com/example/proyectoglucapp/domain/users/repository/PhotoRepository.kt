@@ -1,10 +1,17 @@
 package com.example.proyectoglucapp.domain.users.repository
 
-import com.example.proyectoglucapp.domain.models.Photo
+import android.content.Context
+import com.example.proyectoglucapp.data.local.AppDatabase
+import com.example.proyectoglucapp.data.local.photo.PhotoEntity
 
-interface PhotoRepository {
-    suspend fun savePhoto(photo: Photo)
-    suspend fun getAllPhotos(): List<Photo>
-    suspend fun getPhotoById(id: Long): Photo?
-    suspend fun deletePhoto(id: Long)
+class PhotoRepository(context: Context) {
+    private val photoDao = AppDatabase.getDatabase(context).photoDao()
+
+    suspend fun insertPhoto(photo: PhotoEntity) {
+        photoDao.insert(photo)
+    }
+
+    suspend fun getAllPhotos(): List<PhotoEntity> {
+        return photoDao.getAllPhotos()
+    }
 }

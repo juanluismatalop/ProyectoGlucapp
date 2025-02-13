@@ -1,31 +1,30 @@
+package com.example.proyectoglucapp.data.local
+
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.proyectoglucapp.data.local.NoticiaDao
-import com.example.proyectoglucapp.data.local.PhotoDao
-import com.example.proyectoglucapp.data.local.PhotoEntity
-import com.example.proyectoglucapp.domain.models.Noticia
+import com.example.proyectoglucapp.data.local.noticia.Noticia
+import com.example.proyectoglucapp.data.local.noticia.NoticiaDao
+import com.example.proyectoglucapp.data.local.photo.PhotoDao
+import com.example.proyectoglucapp.data.local.photo.PhotoEntity
 
-@Database(entities = [PhotoEntity::class, Noticia::class], version = 2, exportSchema = false)
+@Database(entities = [Noticia::class, PhotoEntity::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-
-    abstract fun photoDao(): PhotoDao
     abstract fun noticiaDao(): NoticiaDao
+    abstract fun photoDao(): PhotoDao
 
     companion object {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(context: Context): AppDatabase {
+        fun getDatabase(context: Context): AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     AppDatabase::class.java,
-                    "diabetapp_database"
-                )
-                    .fallbackToDestructiveMigration()
-                    .build()
+                    "app_database"
+                ).build()
                 INSTANCE = instance
                 instance
             }

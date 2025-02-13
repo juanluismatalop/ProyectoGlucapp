@@ -8,11 +8,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
-
 import com.example.proyectoglucapp.R
 import com.example.proyectoglucapp.databinding.ActivityMainBinding
-import com.example.proyectoglucapp.ui.view.fragment.NoticiasRecycler
-
+import com.example.proyectoglucapp.ui.Noticias.fragment.NoticiaFragment
 import com.example.proyectoglucapp.ui.views.Activity.LogInActivity
 import com.example.proyectoglucapp.ui.views.fragment.AjustesFragment
 import com.example.proyectoglucapp.ui.views.fragment.CalculadoraFragment
@@ -45,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (savedInstanceState == null) {
-            navigateToFragment(NoticiasRecycler())
+            navigateToFragment(NoticiaFragment())
         }
     }
 
@@ -79,7 +77,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupBottomButtons() {
         binding.botonNoticias.setOnClickListener {
-            navigateToFragment(NoticiasRecycler())
+            navigateToFragment(NoticiaFragment())
         }
         binding.botonAjuste.setOnClickListener {
             navigateToFragment(AjustesFragment())

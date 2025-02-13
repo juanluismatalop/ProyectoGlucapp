@@ -1,24 +1,33 @@
 package com.example.proyectoglucapp.ui.viewmodel
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.proyectoglucapp.data.local.noticia.Noticia
+import com.example.proyectoglucapp.data.local.noticia.NoticiaDatabase
+
+import com.example.proyectoglucapp.data.repository.NoticiaRepository
 import kotlinx.coroutines.launch
-import com.example.proyectoglucapp.domain.repository.NoticiaRepository
-import com.example.proyectoglucapp.domain.models.Noticia
 
-class NoticiaViewModel(private val noticiaRepository: NoticiaRepository) : ViewModel() {
-    val noticias: LiveData<List<Noticia>> = noticiaRepository.getAllNoticias()
+class NoticiaViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository: NoticiaRepository
+    val allNoticias: LiveData<List<Noticia>>
 
-    fun addNoticia(noticia: Noticia) {
-        viewModelScope.launch { noticiaRepository.insertNoticia(noticia) }
+    init {
+        val noticiaDao = NoticiaDatabase.getDatabase(application).noticiaDao()
+        repository = NoticiaRepository(noticiaDao)
+        allNoticias = repository.allNoticias
     }
 
-    fun updateNoticia(noticia: Noticia) {
-        viewModelScope.launch { noticiaRepository.updateNoticia(noticia) }
+    fun insert(noticia: Noticia) = viewModelScope.launch {
+        repository.insert(noticia)
     }
 
-    fun deleteNoticia(noticia: Noticia) {
-        viewModelScope.launch { noticiaRepository.deleteNoticia(noticia) }
+    fun update(noticia: Noticia) = viewModelScope.launch {
+        repository.update(noticia)
+    }
+
+    fun delete(noticia: Noticia) = viewModelScope.launch {
+        repository.delete(noticia)
     }
 }
+

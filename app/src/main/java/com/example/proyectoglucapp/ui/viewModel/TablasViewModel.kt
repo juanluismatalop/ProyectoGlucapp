@@ -1,27 +1,33 @@
 package com.example.proyectoglucapp.ui.viewmodel
 
+import android.app.Application
 import android.graphics.Bitmap
-import androidx.lifecycle.*
-import com.example.proyectoglucapp.domain.models.Photo
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.example.proyectoglucapp.data.local.photo.PhotoEntity
 import com.example.proyectoglucapp.domain.users.repository.PhotoRepository
+
 import kotlinx.coroutines.launch
 
-class TablasViewModel(private val photoRepository: PhotoRepository) : ViewModel() {
+class TablasViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository = PhotoRepository(application)
 
-    private val _photos = MutableLiveData<List<Photo>>()
-    val photos: LiveData<List<Photo>> get() = _photos
+    private val _photos = MutableLiveData<List<PhotoEntity>>()
+    val photos: LiveData<List<PhotoEntity>> get() = _photos
 
     fun savePhoto(bitmap: Bitmap) {
-        val photo = Photo(id = 0, bitmap = bitmap, timestamp = System.currentTimeMillis())
         viewModelScope.launch {
-            photoRepository.savePhoto(photo)
+            val photo = PhotoEntity(imageData = PhotoEntity.fromBitmap(bitmap), timestamp = System.currentTimeMillis())
+            repository.insertPhoto(photo)
             loadPhotos()
         }
     }
 
     fun loadPhotos() {
         viewModelScope.launch {
-            _photos.value = photoRepository.getAllPhotos()
+            _photos.postValue(repository.getAllPhotos())
         }
     }
 }

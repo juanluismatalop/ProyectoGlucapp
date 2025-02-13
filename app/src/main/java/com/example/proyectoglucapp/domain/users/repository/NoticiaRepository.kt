@@ -1,13 +1,22 @@
-package com.example.proyectoglucapp.domain.repository
+package com.example.proyectoglucapp.data.repository
 
 import androidx.lifecycle.LiveData
-import com.example.proyectoglucapp.data.local.NoticiaDao
-import com.example.proyectoglucapp.domain.models.Noticia
-import javax.inject.Inject
+import com.example.proyectoglucapp.data.local.noticia.Noticia
+import com.example.proyectoglucapp.data.local.noticia.NoticiaDao
 
-class NoticiaRepository @Inject constructor(private val noticiaDao: NoticiaDao) {
-    suspend fun insertNoticia(noticia: Noticia) = noticiaDao.insertNoticia(noticia)
-    fun getAllNoticias(): LiveData<List<Noticia>> = noticiaDao.getAllNoticias()
-    suspend fun updateNoticia(noticia: Noticia) = noticiaDao.updateNoticia(noticia)
-    suspend fun deleteNoticia(noticia: Noticia) = noticiaDao.deleteNoticia(noticia)
+
+class NoticiaRepository(private val noticiaDao: NoticiaDao) {
+    val allNoticias: LiveData<List<Noticia>> = noticiaDao.getAllNoticias()
+
+    suspend fun insert(noticia: Noticia) {
+        noticiaDao.insert(noticia)
+    }
+
+    suspend fun update(noticia: Noticia) {
+        noticiaDao.update(noticia)
+    }
+
+    suspend fun delete(noticia: Noticia) {
+        noticiaDao.delete(noticia)
+    }
 }
