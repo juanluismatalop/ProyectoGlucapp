@@ -32,7 +32,10 @@ class TablasFragment : Fragment() {
         val recyclerView: RecyclerView = view.findViewById(R.id.recyclerViewPhotos)
         val btnTakePhoto: ImageButton = view.findViewById(R.id.btnTakePhoto)
 
-        adapter = PhotoAdapter(emptyList())
+        adapter = PhotoAdapter(emptyList()) { photo ->
+            viewModel.deletePhoto(photo)
+        }
+
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -79,3 +82,4 @@ class TablasFragment : Fragment() {
         cameraLauncher.launch(intent)
     }
 }
+

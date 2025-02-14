@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,11 +6,27 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
-    <ImageView
-        android:id="@+id/imageViewItem"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop"
-        android:contentDescription="Captured Photo"/>
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imageViewItem"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="centerCrop"
+            android:contentDescription="Captured Photo"/>
+
+        <ImageButton
+            android:id="@+id/imageButtonBorrar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/boton_main"
+            android:scaleType="fitCenter"
+            android:src="@drawable/borrar"/>
+    </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

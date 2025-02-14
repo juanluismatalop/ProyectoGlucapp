@@ -30,4 +30,12 @@ class TablasViewModel(application: Application) : AndroidViewModel(application) 
             _photos.postValue(repository.getAllPhotos())
         }
     }
+
+    fun deletePhoto(photo: PhotoEntity) {
+        viewModelScope.launch {
+            repository.deletePhoto(photo)
+            loadPhotos()
+        }
+    }
+
 }

@@ -12,4 +12,8 @@ interface PhotoDao {
 
     @Query("SELECT * FROM photos ORDER BY timestamp DESC")
     suspend fun getAllPhotos(): List<PhotoEntity>
+
+    @Query("DELETE FROM photos WHERE id = :photoId")
+    suspend fun deletePhoto(photoId: Long)
 }
+
